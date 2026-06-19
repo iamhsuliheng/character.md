@@ -45,6 +45,14 @@ CHARACTER.md          (or a Google Doc, or a Craft page, or a Notion database)
 
 The spec defines a semantic structure, not a file format. Markdown is the simplest implementation — plain text, no tooling, works everywhere — but the same three sections work in a Google Doc, a Craft document, a Notion page, or anything else your AI can read. Use whatever tool you already have.
 
+## How is this different from memory or skills?
+
+AI platforms already offer features that sound related — memory, custom instructions, system prompts, skills. They solve different problems. Memory and custom instructions both store what the AI should know about you or your character, but treat everything the same: a personality trait, a domain fact, and yesterday's task end up in one flat list. Over time, the AI cannot tell which parts are stable, which should update, and which are just history. A character file separates these by design — dispositions that rarely change, knowledge that updates in place, and experiences that only accumulate — so the structure itself prevents drift.
+
+Skills teach an AI how to perform a task — formatting a spreadsheet, following a style guide. A character file defines who someone is: how they react, what they know, what they have been through. One is training, the other is identity.
+
+With other approaches, what the AI knows about a character is scattered across platform settings, instruction fields, and conversation history. A character file puts everything in one place — a single file or folder you can move, edit, or hand to a different AI. The character goes where the file goes.
+
 ## Where to go from here
 
 If you want to try it now, start with the [minimal example](examples/minimal/CHARACTER.md) and adapt it.
