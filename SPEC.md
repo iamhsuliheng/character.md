@@ -1,13 +1,13 @@
 # CHARACTER.md Specification
 
-**Version:** 0.1
-**Status:** Review complete — ready for publication
+**Version:** 0.2
+**Status:** Published
 
 ## Purpose
 
 CHARACTER.md is a file format for defining persistent characters. A character can be performed by an AI agent, a voice actor reading an audiobook, or any system that needs to stay in role across sessions. The format specifies a character's behavioral rules, domain knowledge, and event history in a structured file hierarchy.
 
-The format's memory model is based on CoALA — Cognitive Architectures for Language Agents (Sumers, Yao, Narasimhan &amp; Griffiths, 2023). CoALA divides an agent's memory into **working memory** (short-term, loaded into context) and **long-term memory** (persistent, retrieved on demand), with long-term memory further subdivided into three types: procedural, semantic, and episodic.
+The format's memory model is based on CoALA — Cognitive Architectures for Language Agents (Sumers, Yao, Narasimhan & Griffiths, 2023). CoALA divides an agent's memory into **working memory** (short-term, loaded into context) and **long-term memory** (persistent, retrieved on demand), with long-term memory further subdivided into three types: procedural, semantic, and episodic.
 
 CHARACTER.md maps directly onto this model:
 
@@ -24,6 +24,8 @@ The format is runtime-agnostic. It works as a static file tree bundled into a wo
 ## Design Principles
 
 The format is built on a few core ideas. Every piece of information belongs to exactly one memory type — behavioral rules go in Dispositions, facts go in Knowledges, events go in Experiences — and content must not cross these boundaries. The main file serves as compact working memory, while the three folders hold long-term memory retrieved on demand. Mutable state is always marked with a temporal prefix (e.g., Currently) so it stands out visually from stable facts. All entries are written as complete sentences in natural prose, avoiding formal notation, arrows, or symbolic shorthand.
+
+For the reasoning behind these principles and the cognitive science foundation, see [RATIONALE.md](RATIONALE.md).
 
 ## Directory Structure
 
@@ -176,6 +178,35 @@ The main file's Experiences section contains recent entries. Older entries may b
 Kuei found the ruptured pipe at the third junction, where the tunnel floor had buckled from subsidence. The damage was worse than the foreman's report suggested — not a simple crack but a full separation, with sewage pooling knee-deep in the maintenance alcove. Shinji proposed rerouting flow through the auxiliary channel while they patched, which meant someone had to climb down to the valve room. Kuei went. The valve was seized. He ended up hammering it open with a wrench, soaking himself in the process. By the time they finished the patch, the shift bell had already rung.
 ```
 
+## Lifecycle
+
+A CHARACTER.md project is not a static document — it is a living memory system. Different parts of the project change at different rates and in different ways. This section describes the mutability characteristics of each section. The spec defines the **semantics** of these changes but does not prescribe the **mechanism** — updates may be performed by an AI agent writing back to its own files, by a human editor, by a game engine pushing state, or by any other means appropriate to the runtime.
+
+### Mutability by Section
+
+**Dispositions** are the most stable layer. A character's behavioral rules rarely change. When they do, it is typically the result of a deliberate design decision (e.g., the character undergoes a transformative event that alters their values) rather than routine operation. Implementations SHOULD treat disposition changes as requiring explicit authorization — not something that happens automatically during a conversation.
+
+**Knowledges** have mixed mutability. Stable facts (constants) do not change. Mutable state (variables, marked with "Currently") changes as tasks progress, circumstances shift, or the character learns new information. Implementations SHOULD update mutable state promptly when the underlying reality changes, rather than waiting for a session boundary.
+
+**Experiences** are append-only. New entries are added as events occur; existing entries are not edited or deleted. Over time, older entries may be archived into separate files in the experiences/ folder to keep the main file compact. Archival is an organizational operation, not a deletion — the memories still exist in long-term storage.
+
+### When to Write Back
+
+The spec does not prescribe specific triggers, but the following pattern has proven effective in practice:
+
+- A meaningful step is completed.
+- A blocking issue is encountered.
+- A significant decision is made.
+- A task ends or is cancelled.
+
+The key principle is: **write when state changes, not when the session ends.** Waiting until the end of a conversation risks losing intermediate state if the session is interrupted.
+
+### Working Memory and Write-Back
+
+In CoALA terms, the main CHARACTER.md file serves as the character's working memory — the content loaded into every session. When the character's mutable state or recent experiences change during a session, those changes should be written back to the main file (and, where appropriate, to the long-term memory folders). This write-back is what makes CHARACTER.md a **living memory system** rather than a static character sheet.
+
+The spec intentionally does not prescribe how write-back is implemented. Some environments support direct file writes; others may use an API or require manual updates. What matters is that the semantic contract is maintained: the main file reflects the character's current state, and the folders preserve their long-term memory.
+
 ## Conformance
 
 A CHARACTER.md project is **conformant** if it satisfies all of the following:
@@ -272,4 +303,4 @@ Kuei found the ruptured pipe at the third junction, where the tunnel floor had b
 
 ## References
 
-- Sumers, T. R., Yao, S., Narasimhan, K., &amp; Griffiths, T. L. (2023). *Cognitive Architectures for Language Agents.* arXiv:2309.02427. [https://arxiv.org/abs/2309.02427](https://arxiv.org/abs/2309.02427)
+- Sumers, T. R., Yao, S., Narasimhan, K., & Griffiths, T. L. (2023). *Cognitive Architectures for Language Agents.* arXiv:2309.02427. [https://arxiv.org/abs/2309.02427](https://arxiv.org/abs/2309.02427)
