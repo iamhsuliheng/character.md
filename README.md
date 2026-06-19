@@ -26,9 +26,11 @@ character-name/
 └── experiences/          ← event history
 ```
 
-The main file holds what matters right now. The folders hold long-term memory, loaded when needed. Plain Markdown, no tooling required — works with any AI, any platform.
+The main file holds what matters right now. The folders hold long-term memory, loaded when needed.
 
-With multiple CHARACTER.md files, one person can run an entire team of AI specialists, each with its own expertise, memory, and personality, using nothing but a chat interface.
+The same structure works for more than fictional characters. An AI assistant that remembers your preferences and tracks ongoing projects. A domain expert — a tax advisor, an investment analyst, a legal researcher — that retains its specialized knowledge across sessions. A portable skill package you can hand to any AI on any platform and get consistent behavior immediately. A novel's protagonist who stays faithful to the story no matter who prompts them.
+
+Plain Markdown, no infrastructure required — works with any AI, any platform. With multiple CHARACTER.md files, one person can run an entire team of specialists using nothing but a chat interface.
 
 ## Quick example
 
