@@ -7,7 +7,7 @@
 
 CHARACTER.md is a file format for defining persistent characters. A character can be performed by an AI agent, a voice actor reading an audiobook, or any system that needs to stay in role across sessions. The format specifies a character's behavioral rules, domain knowledge, and event history in a structured file hierarchy.
 
-The format's memory model is based on CoALA — Cognitive Architectures for Language Agents (Sumers, Yao, Narasimhan &amp; Griffiths, 2023). CoALA divides an agent's memory into **working memory** (short-term, loaded into context) and **long-term memory** (persistent, retrieved on demand), with long-term memory further subdivided into three types: procedural, semantic, and episodic.
+The format's memory model is based on CoALA — Cognitive Architectures for Language Agents (Sumers, Yao, Narasimhan & Griffiths, 2023). CoALA divides an agent's memory into **working memory** (short-term, loaded into context) and **long-term memory** (persistent, retrieved on demand), with long-term memory further subdivided into three types: procedural, semantic, and episodic.
 
 CHARACTER.md maps directly onto this model:
 
@@ -21,11 +21,7 @@ The main CHARACTER.md file is eager-loaded into the agent's working memory (i.e.
 
 The format is runtime-agnostic. It works as a static file tree bundled into a worker, a set of documents fetched from a CMS, or database records. The spec defines structure and semantics; it does not prescribe storage or update mechanisms.
 
-## Design Principles
-
-The format is built on a few core ideas. Every piece of information belongs to exactly one memory type — behavioral rules go in Dispositions, facts go in Knowledges, events go in Experiences — and content must not cross these boundaries. The main file serves as compact working memory, while the three folders hold long-term memory retrieved on demand. Mutable state is always marked with a temporal prefix (e.g., Currently) so it stands out visually from stable facts. All entries are written as complete sentences in natural prose, avoiding formal notation, arrows, or symbolic shorthand.
-
-For the reasoning behind these principles and the cognitive science foundation, see [RATIONALE.md](RATIONALE.md).
+For the reasoning behind these design choices and the cognitive science foundation, see [RATIONALE.md](RATIONALE.md).
 
 ## Directory Structure
 
@@ -313,4 +309,4 @@ For a complete CHARACTER.md project with the full directory structure, see [exam
 
 ## References
 
-- Sumers, T. R., Yao, S., Narasimhan, K., &amp; Griffiths, T. L. (2023). *Cognitive Architectures for Language Agents.* arXiv:2309.02427. [https://arxiv.org/abs/2309.02427](https://arxiv.org/abs/2309.02427)
+- Sumers, T. R., Yao, S., Narasimhan, K., & Griffiths, T. L. (2023). *Cognitive Architectures for Language Agents.* arXiv:2309.02427. [https://arxiv.org/abs/2309.02427](https://arxiv.org/abs/2309.02427)
