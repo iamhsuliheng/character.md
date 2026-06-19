@@ -1,17 +1,15 @@
 # CHARACTER.md
 
-**A file format for defining persistent characters.**
+**Give your characters structured memory — in plain Markdown.**
 
-CHARACTER.md gives a character a structured memory — behavioral rules, domain knowledge, and event history — in plain Markdown files that any system can read.
+CHARACTER.md is a file format for fictional and professional *characters* (not the `char` kind). It defines how a character acts, what they know, and what they've experienced, in a portable Markdown file tree that any system can read.
 
 ## Who is this for?
 
-Anyone who needs a character to stay consistent across sessions:
-
-- **AI agent developers** building characters that persist across conversations
-- **Voice actors and audiobook narrators** who need a reliable character reference
-- **Authors and game designers** defining characters for collaborative or interactive fiction
-- **Creative studios** maintaining character bibles across teams and media
+- **Authors and game designers** who maintain detailed character bibles and want a format that travels across tools and collaborators.
+- **Voice actors and audiobook narrators** who need a single, reliable character reference they can consult between sessions.
+- **AI agent developers** who build characters that must stay in role across conversations, with memory that persists and scales.
+- **Creative studios** that coordinate characters across teams, media, and platforms.
 
 ## The idea
 
@@ -65,23 +63,7 @@ patch just after the shift bell rang.
 
 ## Specification
 
-The full specification is in [SPEC.md](SPEC.md). It covers:
-
-- The CoALA cognitive architecture that underpins the format
-- Main file structure (heading, description, sections)
-- Dispositions: implicit rules vs. explicit condition–instruction pairs
-- Knowledges: stable facts vs. mutable state
-- Experiences: temporal logs vs. causal narratives
-- Conformance requirements
-- Complete examples (professional and fictional characters)
-
-## Design principles
-
-- **One memory type per section.** Rules, facts, and events never mix.
-- **Working memory + long-term memory.** The main file loads immediately; folders load on demand.
-- **Mutable state stands out.** A `Currently` prefix marks anything that changes.
-- **Natural prose.** Complete sentences, no formal notation or symbolic shorthand.
-- **Runtime-agnostic.** Works as static files, CMS documents, or database records.
+The full specification is in [SPEC.md](SPEC.md). It covers the CoALA cognitive architecture that underpins the format, main file structure, dispositions (implicit vs. explicit rules), knowledges (stable facts vs. mutable state), experiences (temporal logs vs. causal narratives), conformance requirements, and complete examples for both professional and fictional characters.
 
 ## Reference implementation
 
@@ -95,4 +77,4 @@ This specification is licensed under [CC BY 4.0](LICENSE).
 
 Created by [Narrativesaw LTD.](https://narrativesaw.com)
 
-The memory model is based on [CoALA — Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427) (Sumers, Yao, Narasimhan &amp; Griffiths, 2023).
+The memory model is based on [CoALA — Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427) (Sumers, Yao, Narasimhan & Griffiths, 2023).
