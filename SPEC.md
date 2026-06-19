@@ -23,9 +23,13 @@ The format is runtime-agnostic. It works as a static file tree bundled into a wo
 
 For the reasoning behind these design choices and the cognitive science foundation, see [RATIONALE.md](RATIONALE.md).
 
-## Directory Structure
+## Package Structure
 
-A CHARACTER.md project consists of a main file and three sibling folders:
+A CHARACTER.md package centers on a single main document. The main document itself contains all three memory sections — Dispositions, Knowledges, and Experiences — and is eager-loaded into the agent's working memory at the start of every session. A main document alone is a complete, conformant package.
+
+When any section grows too large to keep inline, its content can be externalized into a corresponding area (dispositions/, knowledges/, experiences/). These areas are long-term memory: their contents are retrieved on demand, not loaded upfront. Externalization is a scaling decision, not an architectural requirement.
+
+**File system layout (reference implementation):**
 
 ```
 character-name/
@@ -42,6 +46,8 @@ character-name/
     ├── 20260618.md
     └── ...
 ```
+
+The same logical structure maps onto other media. A Google Doc can use heading levels to separate the three sections, with linked documents for externalized content. A Craft workspace can use sub-pages. A Notion database can use nested pages. A CMS can use content types. What matters is the semantic separation — main document vs. long-term memory, and the three memory types within each — not the physical container.
 
 ## CHARACTER.md (Main File)
 
