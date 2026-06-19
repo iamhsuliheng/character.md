@@ -6,7 +6,9 @@ CHARACTER.md is an open format that gives characters structured, evolving memory
 
 ## What you can build with it
 
-Most character descriptions are a single block of unstructured text that drifts over time — personality, knowledge, and history all mixed together with no way to tell what should change and what should not. CHARACTER.md separates these concerns, and that separation opens up real applications:
+Most character descriptions are a single block of unstructured text that drifts over time — personality, knowledge, and history all mixed together with no way to tell what should change and what should not. CHARACTER.md separates these concerns. Because the format marks which parts are stable, which parts update, and which parts only grow, an AI consuming the file can write changes back to the right place automatically — the character grows with every interaction, no manual editing required.
+
+That separation opens up real applications:
 
 **A personal AI that actually remembers.** Define an assistant that knows your preferences, tracks your ongoing projects, and accumulates context across sessions — without starting from zero every time.
 
@@ -36,7 +38,9 @@ character-name/
 └── experiences/          ← event history
 ```
 
-The main file holds what matters right now. The folders hold long-term memory, loaded when needed. Plain Markdown, no infrastructure required — works with any AI, any platform. With multiple CHARACTER.md files, one person can run an entire team of specialists using nothing but a chat interface.
+The main file holds what matters right now. The folders hold long-term memory, loaded when needed. Because each layer has clear mutability rules, an AI agent can update knowledges and append experiences during use — the character file becomes a living document that improves the more you use it.
+
+Plain Markdown, no infrastructure required — works with any AI, any platform. With multiple CHARACTER.md files, one person can run an entire team of specialists using nothing but a chat interface.
 
 ## Quick example
 
