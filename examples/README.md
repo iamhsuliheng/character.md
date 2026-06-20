@@ -2,6 +2,10 @@
 
 This directory contains example CHARACTER.md projects at different levels of complexity.
 
+## [agent/](agent/)
+
+A single-file CHARACTER.md for Morgan, a personal work assistant for a freelance product consultant. Demonstrates the format in a real-world agent scenario — managing clients, tracking project status, and maintaining continuity across work sessions. A good starting point if you're building a persistent AI assistant.
+
 ## [minimal/](minimal/)
 
 A single-file CHARACTER.md for a TRPG-style character named Aldric. Everything — dispositions, knowledges, and experiences — lives in one file. Good for small agents, quick prototypes, or getting a feel for the format.
