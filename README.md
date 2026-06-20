@@ -6,11 +6,13 @@ CHARACTER.md gives your agent a structured identity. Three sections — disposit
 
 ## Getting started
 
-The fastest way to understand the format is to look at one. Here's a minimal example — a TRPG character named Aldric, in a single file:
+The fastest way to understand the format is to look at one. Here's a work assistant that manages clients and tracks project status across sessions:
 
-[`examples/minimal/CHARACTER.md`](examples/minimal/CHARACTER.md)
+[`examples/agent/CHARACTER.md`](examples/agent/CHARACTER.md)
 
-Copy it into a conversation with any AI, and the AI will know who Aldric is, what he knows about his world, and what happened to him last week. Edit it, and you have your own agent.
+Copy it into a conversation with any AI, and the AI will know how to behave, what projects are active, and what happened in the last few sessions. Edit it, and you have your own agent.
+
+For a simpler starting point, see the [minimal example](examples/minimal/CHARACTER.md) — a single-file character you can read in 30 seconds.
 
 ## What you can build with it
 
@@ -50,8 +52,6 @@ The spec defines a semantic structure, not a file format. Markdown is the simple
 **Portable.** CLAUDE.md and AGENTS.md solve a similar problem for coding agents — persistent instructions and learned behaviors across sessions. They handle procedural and semantic memory well but lack a structured episodic layer. CHARACTER.md adds that third layer, formalizes the boundaries between all three, and works across any AI platform, not just one vendor's toolchain.
 
 ## Where to go from here
-
-Start with the [minimal example](examples/minimal/CHARACTER.md) and adapt it to your agent.
 
 To understand why the format is designed this way — why three sections, why natural language, why not YAML — read the [design rationale](RATIONALE.md).
 
