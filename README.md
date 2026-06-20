@@ -1,8 +1,8 @@
 # CHARACTER.md
 
-Most agent memory systems solve retrieval — how to store and fetch what happened in past conversations. None of them define *identity*: who the agent is, what it knows apart from conversation history, and how those different kinds of memory relate to each other.
+AI agents forget who they are. Memory tools like Mem0, Zep, and LangMem help agents recall past conversations — but none of them answer a more basic question: *who is this agent?* How should it behave, what does it know, and how do those things relate to what it's been through?
 
-CHARACTER.md is a structured identity spec for AI agents. It separates memory into three layers — dispositions (procedural), knowledges (semantic), and experiences (episodic) — aligning with the CoALA cognitive architecture's long-term memory taxonomy. One file, plain Markdown, no runtime dependency.
+CHARACTER.md gives your agent a structured identity. Three sections — dispositions, knowledges, and experiences — each handle a different kind of memory that changes at a different rate. One file, plain Markdown, no runtime dependency.
 
 ## Getting started
 
@@ -24,30 +24,30 @@ Copy it into a conversation with any AI, and the AI will know who Aldric is, wha
 
 A CHARACTER.md file has three sections, each handling a different kind of memory:
 
-**Dispositions** — how the agent behaves and what it can do. Rules, tendencies, skills, and boundaries that stay mostly stable. Think of them as the agent's operating system: personality, tone, areas of competence, how it responds under specific conditions. In CoALA terms, this is *procedural memory* — the explicit, portable kind (instruction sets), not the implicit kind (model weights).
+**Dispositions** — how the agent behaves and what it can do. Rules, tendencies, skills, and boundaries that stay mostly stable. Think of them as the agent's operating system: personality, tone, areas of competence, how it responds under specific conditions.
 
-**Knowledges** — what the agent knows. Some are facts that rarely change; others are current state that gets updated as things happen. Domain knowledge, situational awareness, and working context live here. This maps to CoALA's *semantic memory*.
+**Knowledges** — what the agent knows. Some are facts that rarely change; others are current state that gets updated as things happen. Domain knowledge, situational awareness, and working context live here.
 
-**Experiences** — what the agent has been through. A record of events, decisions, and interactions. This section only grows — nothing is deleted, but older entries can settle into deeper storage, the way long-term memory works. This maps to CoALA's *episodic memory*.
+**Experiences** — what the agent has been through. A record of events, decisions, and interactions. This section only grows — nothing is deleted, but older entries can settle into deeper storage, the way long-term memory works.
 
 ```
 CHARACTER.md
-├── Dispositions      — procedural: how it behaves
-├── Knowledges        — semantic: what it knows
-└── Experiences       — episodic: what it's been through
+├── Dispositions      — how it behaves
+├── Knowledges        — what it knows
+└── Experiences       — what it's been through
 ```
+
+This three-way split isn't arbitrary — it mirrors the procedural / semantic / episodic memory model from cognitive science, specifically the [CoALA framework](https://arxiv.org/abs/2309.02427) (Cognitive Architectures for Language Agents). Dispositions map to procedural memory, Knowledges to semantic memory, Experiences to episodic memory. The format inherits a structure that cognitive science and AI research have already validated, rather than inventing its own.
 
 The spec defines a semantic structure, not a file format. Markdown is the simplest implementation — plain text, no tooling, works everywhere — but the same three sections work in any document your AI can read.
 
 ## How is this different from existing memory solutions?
 
-Agent memory frameworks — Mem0, Zep, LangMem, Letta, and others — are runtime infrastructure. They solve how to store, index, and retrieve memories while your agent is running. Most cover one or two of CoALA's memory types well, but none of them define *what the memory should contain* or *how different memory types relate to each other* at the specification level.
+**Different layer, not a competing product.** Agent memory frameworks — Mem0, Zep, LangMem, Letta — are runtime infrastructure. They handle storage, indexing, and retrieval while your agent runs. CHARACTER.md operates one layer above: it defines who the agent *is* before it starts running. You can use both together — CHARACTER.md for identity, your preferred memory framework for retrieval.
 
-CHARACTER.md operates at a different layer. It is an identity specification — it defines who the agent is *before* it starts running. The structure itself enforces the separation that memory frameworks leave to the developer: dispositions that rarely change, knowledge that updates in place, and experiences that only accumulate.
+**Structure that prevents drift.** Memory, custom instructions, and system prompts tend to become flat lists where personality traits, domain facts, and yesterday's events all blend together. Over time, the AI can't tell which parts are stable and which are outdated. CHARACTER.md separates them by design — dispositions that rarely change, knowledge that updates in place, experiences that only accumulate — so the structure itself prevents drift.
 
-The two layers are complementary, not competing. You can use CHARACTER.md to define your agent's identity and plug any memory framework underneath for runtime retrieval.
-
-CLAUDE.md and AGENTS.md serve a similar purpose for coding agents — persistent instructions and learned behaviors across sessions. They cover procedural and semantic memory well, but lack a structured episodic layer. CHARACTER.md adds that third layer and formalizes the boundaries between all three.
+**Portable.** CLAUDE.md and AGENTS.md solve a similar problem for coding agents — persistent instructions and learned behaviors across sessions. They handle procedural and semantic memory well but lack a structured episodic layer. CHARACTER.md adds that third layer, formalizes the boundaries between all three, and works across any AI platform, not just one vendor's toolchain.
 
 ## Where to go from here
 
