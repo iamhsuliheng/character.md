@@ -1,6 +1,6 @@
 # CHARACTER.md
 
-The structured knowledge an AI reads to become a specific character, in a single document. Three sections — dispositions, knowledges, and experiences — separate character knowledge by how it changes: what stays stable, what gets updated, and what only accumulates.
+The structured knowledge an AI reads to become a specific character, in a single document. Three sections — dispositions, knowledges, and experiences — each use a different kind of sentence: conditional-instruction pairs that define behavior, factual statements that capture knowledge, and narratives that record what happened.
 
 Plain Markdown. No runtime dependency.
 
@@ -44,7 +44,7 @@ That's it. The AI picks up Morgan's tone, references client projects by name, an
 
 Try it with Morgan, a work assistant for a freelance product consultant: [`examples/agent/CHARACTER.md`](examples/agent/CHARACTER.md). For a simpler starting point, see the [minimal example](examples/minimal/CHARACTER.md).
 
-How you deliver the file is up to you: paste it into a conversation, attach it, or add it as project knowledge. If your AI has write access to the file — through Google Drive, MCP, or any read/write integration — it can update knowledges and append experiences after each session. The three-section structure tells it what to change and what to leave alone.
+How you deliver the file is up to you: paste it into a conversation, attach it, or add it as project knowledge. If your AI has write access to the file — through Google Drive, MCP, or any read/write integration — it can update knowledges and append experiences after each session. Because each section uses a different sentence type, the AI knows what kind of change is appropriate: update a fact in place, or append a new narrative entry.
 
 > **Claude users:** connect Google Drive in Settings for read/write access. The AI can then keep the character file up to date after each conversation.
 
@@ -60,28 +60,30 @@ How you deliver the file is up to you: paste it into a conversation, attach it, 
 
 ## How it works
 
-A CHARACTER.md file has three sections, each holding a different kind of character knowledge:
+A CHARACTER.md file has three sections, each holding a different kind of character knowledge expressed in a distinct sentence type:
 
-**Dispositions** — how the character behaves and what it can do. Rules, tendencies, skills, and boundaries that stay mostly stable. Think of this as the character's operating manual: personality, tone, areas of competence, how it responds under specific conditions.
+**Dispositions** — how the character behaves and what it can do. Written as conditional-instruction pairs: "when X, do Y." Rules, tendencies, skills, and boundaries. Think of this as the character's operating manual: personality, tone, areas of competence, how it responds under specific conditions. These tend to stay stable because instructions don't expire the way facts do.
 
-**Knowledges** — what the character knows. Some are facts that rarely change; others are current state that gets updated as things happen. Domain knowledge, situational awareness, and working context live here.
+**Knowledges** — what the character knows. Written as factual statements: "X is Y." Domain knowledge, situational awareness, and working context. Some facts rarely change; others are current state marked with "currently" that gets updated as things happen. The sentence type — declarative facts — naturally accommodates both.
 
-**Experiences** — what the character has been through. A record of events, decisions, and interactions. This section only grows — nothing is deleted, but older entries can settle into deeper storage, the way long-term memory works.
+**Experiences** — what the character has been through. Written as narratives: what happened, in what order, and what it led to. A record of events, decisions, and interactions. Narratives only accumulate — you add new entries, not rewrite old ones — the way memory works.
 
 ```
 CHARACTER.md
-├── Dispositions      — how it behaves        (stable)
-├── Knowledges        — what it knows          (some update)
-└── Experiences       — what it's been through (only grows)
+├── Dispositions      — how it behaves        (conditional-instruction pairs)
+├── Knowledges        — what it knows          (factual statements)
+└── Experiences       — what it's been through (narratives)
 ```
 
 This three-way split mirrors the procedural / semantic / episodic memory model from cognitive science, specifically the [CoALA framework](https://arxiv.org/abs/2309.02427) (Cognitive Architectures for Language Agents). Dispositions map to procedural memory, knowledges to semantic memory, experiences to episodic memory. The format inherits a structure that cognitive science and AI research have already validated.
+
+Any aspect of a character — abilities, preferences, values, emotional tendencies, goals, relationships, trauma — maps to one of these three sentence types. There is no fourth. The framework is complete: nothing falls through the cracks, and nothing overlaps.
 
 The spec defines a semantic structure, not a file format. Markdown is the simplest implementation — plain text, no tooling, works everywhere — but the same three sections work in a Google Doc, a Notion page, a Craft document, or any medium your AI can read.
 
 ## How is this different?
 
-**From system prompts and custom instructions.** These also define character, but as flat text where personality traits, domain facts, and recent context all sit together. Over time, the AI can't distinguish what's permanent from what's outdated. CHARACTER.md separates them by design — dispositions that rarely change, knowledge that updates in place, experiences that only accumulate — so each piece of character knowledge has a clear rule for how it should be treated.
+**From system prompts and custom instructions.** These also define character, but as flat text where personality traits, domain facts, and recent context all sit together. Over time, the AI can't distinguish what's permanent from what's outdated. CHARACTER.md separates them by sentence type — instructions, facts, and narratives each have their own section — so the AI knows how to treat each piece: follow an instruction, trust or update a fact, remember an event.
 
 **From skills and agent instructions.** Formats like CLAUDE.md and AGENTS.md give agents persistent instructions and learned behaviors — structured procedural knowledge. CHARACTER.md covers a different question: not *how to do things* but *who to be*. Skills define capability; character files define identity. You can use both.
 
