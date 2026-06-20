@@ -1,8 +1,8 @@
 # CHARACTER.md
 
-The structured knowledge an AI reads to become a specific character, in a single document. Three sections — dispositions, knowledges, and experiences — each use a different kind of sentence: conditional-instruction pairs that define behavior, factual statements that capture knowledge, and narratives that record what happened.
+A plain-text file that gives an AI a complete character.
 
-Plain Markdown. No runtime dependency.
+Three sections, three sentence types: dispositions are written as conditional-instruction pairs, knowledges as factual statements, experiences as narratives. The AI reads natural language it already understands — no schema, no metadata, no infrastructure needed.
 
 Here's the same prompt with and without a character file:
 
@@ -60,13 +60,13 @@ How you deliver the file is up to you: paste it into a conversation, attach it, 
 
 ## How it works
 
-A CHARACTER.md file has three sections, each holding a different kind of character knowledge expressed in a distinct sentence type:
+A CHARACTER.md file has three sections, each written in a distinct sentence type that the AI already knows how to handle:
 
-**Dispositions** — how the character behaves and what it can do. Written as conditional-instruction pairs: "when X, do Y." Rules, tendencies, skills, and boundaries. Think of this as the character's operating manual: personality, tone, areas of competence, how it responds under specific conditions. These tend to stay stable because instructions don't expire the way facts do.
+**Dispositions** — how the character behaves and what it can do. Written as conditional-instruction pairs: "when X, do Y." Rules, tendencies, skills, and boundaries. The AI reads an instruction and follows it. These tend to stay stable because instructions don't expire the way facts do.
 
-**Knowledges** — what the character knows. Written as factual statements: "X is Y." Domain knowledge, situational awareness, and working context. Some facts rarely change; others are current state marked with "currently" that gets updated as things happen. The sentence type — declarative facts — naturally accommodates both.
+**Knowledges** — what the character knows. Written as factual statements: "X is Y." Domain knowledge, situational awareness, and working context. Some facts rarely change; others are current state marked with "currently" that gets updated as things happen. The AI reads a fact and trusts it — or updates it when the fact changes.
 
-**Experiences** — what the character has been through. Written as narratives: what happened, in what order, and what it led to. A record of events, decisions, and interactions. Narratives only accumulate — you add new entries, not rewrite old ones — the way memory works.
+**Experiences** — what the character has been through. Written as narratives: what happened, in what order, and what it led to. A record of events, decisions, and interactions. The AI reads a narrative and remembers it. New entries are appended, old ones are never rewritten — the way memory works.
 
 ```
 CHARACTER.md
@@ -75,9 +75,11 @@ CHARACTER.md
 └── Experiences       — what it's been through (narratives)
 ```
 
-This three-way split mirrors the procedural / semantic / episodic memory model from cognitive science, specifically the [CoALA framework](https://arxiv.org/abs/2309.02427) (Cognitive Architectures for Language Agents). Dispositions map to procedural memory, knowledges to semantic memory, experiences to episodic memory. The format inherits a structure that cognitive science and AI research have already validated.
+No special syntax. No metadata tags. The structure lives in the sentence types themselves — the same ones humans have always used to describe rules, facts, and stories. An AI reading a CHARACTER.md doesn't need to be told which section does what; the language already carries that information.
 
 Any aspect of a character — abilities, preferences, values, emotional tendencies, goals, relationships, trauma — maps to one of these three sentence types. There is no fourth. The framework is complete: nothing falls through the cracks, and nothing overlaps.
+
+This three-way split mirrors the procedural / semantic / episodic memory model from cognitive science, specifically the [CoALA framework](https://arxiv.org/abs/2309.02427) (Cognitive Architectures for Language Agents). Dispositions map to procedural memory, knowledges to semantic memory, experiences to episodic memory. The format inherits a structure that cognitive science and AI research have already validated.
 
 The spec defines a semantic structure, not a file format. Markdown is the simplest implementation — plain text, no tooling, works everywhere — but the same three sections work in a Google Doc, a Notion page, a Craft document, or any medium your AI can read.
 
@@ -87,7 +89,7 @@ The spec defines a semantic structure, not a file format. Markdown is the simple
 
 **From skills and agent instructions.** Formats like CLAUDE.md and AGENTS.md give agents persistent instructions and learned behaviors — structured procedural knowledge. CHARACTER.md covers a different question: not *how to do things* but *who to be*. Skills define capability; character files define identity. You can use both.
 
-**From memory frameworks.** Mem0, Zep, LangMem, and Letta are runtime infrastructure — they handle storage, retrieval, and indexing while your agent runs. CHARACTER.md defines what character knowledge looks like, not how to store it. They're complementary: use CHARACTER.md to structure the knowledge, and a memory framework (or a file on Google Drive) to persist it.
+**From memory frameworks.** Mem0, Zep, LangMem, Letta, and platforms like Fabric build runtime infrastructure — databases, vector stores, embedding pipelines, retrieval systems — to give AI agents persistent memory. That's the plumbing, and it works. But the knowledge flowing through that plumbing has no structure: instructions, facts, and history get stored as flat lists or untyped entries, and the AI has to guess what each piece is and how to handle it when writing back. CHARACTER.md solves the other half of the problem — what shape memory should have. Three sentence types give every piece of knowledge a clear identity, so the AI knows whether to follow it, update it, or append to it. Use CHARACTER.md to structure the knowledge, and a memory framework (or a file on Google Drive) to persist it.
 
 ## Where to go from here
 
