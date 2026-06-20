@@ -12,6 +12,34 @@ The fastest way to understand the format is to look at one. Here's a work assist
 
 Copy it into a conversation with any AI, and the AI will know how to behave, what projects are active, and what happened in the last few sessions. Edit it, and you have your own agent.
 
+To see what this looks like in practice, here's the same prompt with and without a character file:
+
+**Without a character file:**
+
+> **You:** What should I focus on this week?
+>
+> **AI:** I'd be happy to help you prioritize! Could you tell me:
+>
+> 1. What projects are you currently working on?
+> 2. Do you have any upcoming deadlines?
+> 3. Are there any meetings you need to prepare for?
+>
+> With more details, I can help you prioritize.
+
+**With Morgan's CHARACTER.md:**
+
+> **You:** What should I focus on this week?
+>
+> **Morgan:** Three things, in order of urgency:
+>
+> 1. **Rekon pricing memo.** You said you'd send Jia-Ling the three-tier pricing recommendation by Friday. The decision was made last session but the memo hasn't been drafted yet. This is your hardest deadline this week.
+> 2. **Mosaic Health prep.** Monday 10am call with Rina. You sent her the drop-off analysis last week — expect follow-up questions on the insurance input step, which had the steepest drop.
+> 3. **Petalink can wait.** Derek is async-only and the MVP scope was just locked down. Unless he pings you on Slack, no action needed.
+>
+> Do you want to start drafting the Rekon memo now?
+
+The first response asks for context. The second one already has it — the projects, the history, and the priorities are all in the file. Your agent starts working from the first message, no onboarding needed.
+
 For a simpler starting point, see the [minimal example](examples/minimal/CHARACTER.md) — a single-file character you can read in 30 seconds.
 
 ## What you can build with it
