@@ -1,26 +1,10 @@
 # CHARACTER.md
 
-AI agents forget who they are. Memory tools like Mem0, Zep, and LangMem help agents recall past conversations — but none of them answer a more basic question: *who is this agent?* How should it behave, what does it know, and how do those things relate to what it's been through?
+The structured knowledge an AI reads to become a specific character, in a single document. Three sections — dispositions, knowledges, and experiences — separate character knowledge by how it changes: what stays stable, what gets updated, and what only accumulates.
 
-CHARACTER.md gives your agent a structured identity. Three sections — dispositions, knowledges, and experiences — each handle a different kind of memory that changes at a different rate. One file, plain Markdown, no runtime dependency.
+Plain Markdown. No runtime dependency.
 
-## Getting started
-
-Save the character file somewhere your AI can read and write — a Google Doc works well. When the file is writable, the AI updates it after each conversation: new knowledge and experiences are written back to the right sections automatically.
-
-> **Claude users:** connect Google Drive in Settings to give your AI read/write access. **Just trying it out?** Paste the file into a conversation instead — the format works the same way, but the character won't remember what it learned.
-
-Tell your AI:
-
-```
-Read the character file and respond as Morgan from now on.
-```
-
-That's it. The AI will pick up Morgan's tone, reference active client projects by name, and recall what happened in previous sessions — all from the file.
-
-Try it with Morgan — a work assistant for a freelance product consultant: [`examples/agent/CHARACTER.md`](examples/agent/CHARACTER.md). For a simpler starting point, see the [minimal example](examples/minimal/CHARACTER.md).
-
-To see what this looks like in practice, here's the same prompt with and without a character file:
+Here's the same prompt with and without a character file:
 
 **Without a character file:**
 
@@ -46,44 +30,62 @@ To see what this looks like in practice, here's the same prompt with and without
 >
 > Do you want to start drafting the Rekon memo now?
 
-The first response asks for context. The second one already has it — the projects, the history, and the priorities are all in the file. Your agent starts working from the first message, no onboarding needed.
+The first response asks for context. The second already has it — Morgan's working style, client details, and session history are all in the file. The AI isn't retrieving fragments; it's a character that knows its own history, priorities, and style.
+
+## Getting started
+
+Give your AI a character file and tell it:
+
+```
+Read the character file and respond as Morgan from now on.
+```
+
+That's it. The AI picks up Morgan's tone, references client projects by name, and knows what decisions have already been made — all from the file.
+
+Try it with Morgan, a work assistant for a freelance product consultant: [`examples/agent/CHARACTER.md`](examples/agent/CHARACTER.md). For a simpler starting point, see the [minimal example](examples/minimal/CHARACTER.md).
+
+How you deliver the file is up to you: paste it into a conversation, attach it, or add it as project knowledge. If your AI has write access to the file — through Google Drive, MCP, or any read/write integration — it can update knowledges and append experiences after each session. The three-section structure tells it what to change and what to leave alone.
+
+> **Claude users:** connect Google Drive in Settings for read/write access. The AI can then keep the character file up to date after each conversation.
 
 ## What you can build with it
 
-**A persistent AI assistant.** Define how your agent should behave, write down what it needs to know about you and your work, and let it accumulate experiences over time. The next conversation picks up where the last one left off — not because the platform remembers, but because the file does. The format marks which parts are stable, which parts update, and which parts only grow — an AI consuming the file can write changes back to the right place automatically.
+**A personal AI that actually knows you.** Define how your agent behaves, what it knows about your work, and let experiences accumulate over time. Each conversation starts where the last one left off, because the knowledge is in the file.
 
-**A multi-agent team.** Each agent is a self-contained file. Load several into the same conversation and they each bring their own dispositions, knowledge, and history. A team of AI assistants can cover different specialties without stepping on each other. The file is the boundary.
+**A multi-agent team.** Each agent is a self-contained file. Load several into one conversation and they each bring their own dispositions, knowledge, and history — a team that works together without stepping on each other. The file is the boundary.
 
-**A stateful NPC or game character.** Define starting traits and knowledge, then let the experience layer fill in as players interact. The format already separates what changes from what doesn't, so you don't need to build that logic yourself.
+**An expert agent.** A character doesn't have to be fictional. Morgan is a work assistant — a professional role with domain knowledge, client context, and a working style. The same structure works for a legal researcher, a customer support persona, or any role where the AI needs stable expertise and evolving context.
+
+**A stateful NPC or game character.** Define starting traits and knowledge, then let experiences fill in as players interact. The format already separates what changes from what doesn't, so you don't need to build that logic yourself.
 
 ## How it works
 
-A CHARACTER.md file has three sections, each handling a different kind of memory:
+A CHARACTER.md file has three sections, each holding a different kind of character knowledge:
 
-**Dispositions** — how the agent behaves and what it can do. Rules, tendencies, skills, and boundaries that stay mostly stable. Think of them as the agent's operating system: personality, tone, areas of competence, how it responds under specific conditions.
+**Dispositions** — how the character behaves and what it can do. Rules, tendencies, skills, and boundaries that stay mostly stable. Think of this as the character's operating manual: personality, tone, areas of competence, how it responds under specific conditions.
 
-**Knowledges** — what the agent knows. Some are facts that rarely change; others are current state that gets updated as things happen. Domain knowledge, situational awareness, and working context live here.
+**Knowledges** — what the character knows. Some are facts that rarely change; others are current state that gets updated as things happen. Domain knowledge, situational awareness, and working context live here.
 
-**Experiences** — what the agent has been through. A record of events, decisions, and interactions. This section only grows — nothing is deleted, but older entries can settle into deeper storage, the way long-term memory works.
+**Experiences** — what the character has been through. A record of events, decisions, and interactions. This section only grows — nothing is deleted, but older entries can settle into deeper storage, the way long-term memory works.
 
 ```
 CHARACTER.md
-├── Dispositions      — how it behaves
-├── Knowledges        — what it knows
-└── Experiences       — what it's been through
+├── Dispositions      — how it behaves        (stable)
+├── Knowledges        — what it knows          (some update)
+└── Experiences       — what it's been through (only grows)
 ```
 
-This three-way split isn't arbitrary — it mirrors the procedural / semantic / episodic memory model from cognitive science, specifically the [CoALA framework](https://arxiv.org/abs/2309.02427) (Cognitive Architectures for Language Agents). Dispositions map to procedural memory, Knowledges to semantic memory, Experiences to episodic memory. The format inherits a structure that cognitive science and AI research have already validated, rather than inventing its own.
+This three-way split mirrors the procedural / semantic / episodic memory model from cognitive science, specifically the [CoALA framework](https://arxiv.org/abs/2309.02427) (Cognitive Architectures for Language Agents). Dispositions map to procedural memory, knowledges to semantic memory, experiences to episodic memory. The format inherits a structure that cognitive science and AI research have already validated.
 
-The spec defines a semantic structure, not a file format. Markdown is the simplest implementation — plain text, no tooling, works everywhere — but the same three sections work in any document your AI can read.
+The spec defines a semantic structure, not a file format. Markdown is the simplest implementation — plain text, no tooling, works everywhere — but the same three sections work in a Google Doc, a Notion page, a Craft document, or any medium your AI can read.
 
-## How is this different from existing memory solutions?
+## How is this different?
 
-**Different layer, not a competing product.** Agent memory frameworks — Mem0, Zep, LangMem, Letta — are runtime infrastructure. They handle storage, indexing, and retrieval while your agent runs. CHARACTER.md operates one layer above: it defines who the agent *is* before it starts running. You can use both together — CHARACTER.md for identity, your preferred memory framework for retrieval.
+**From system prompts and custom instructions.** These also define character, but as flat text where personality traits, domain facts, and recent context all sit together. Over time, the AI can't distinguish what's permanent from what's outdated. CHARACTER.md separates them by design — dispositions that rarely change, knowledge that updates in place, experiences that only accumulate — so each piece of character knowledge has a clear rule for how it should be treated.
 
-**Structure that prevents drift.** Memory, custom instructions, and system prompts tend to become flat lists where personality traits, domain facts, and yesterday's events all blend together. Over time, the AI can't tell which parts are stable and which are outdated. CHARACTER.md separates them by design — dispositions that rarely change, knowledge that updates in place, experiences that only accumulate — so the structure itself prevents drift.
+**From skills and agent instructions.** Formats like CLAUDE.md and AGENTS.md give agents persistent instructions and learned behaviors — structured procedural knowledge. CHARACTER.md covers a different question: not *how to do things* but *who to be*. Skills define capability; character files define identity. You can use both.
 
-**Portable.** CLAUDE.md and AGENTS.md solve a similar problem for coding agents — persistent instructions and learned behaviors across sessions. They handle procedural and semantic memory well but lack a structured episodic layer. CHARACTER.md adds that third layer, formalizes the boundaries between all three, and works across any AI platform, not just one vendor's toolchain.
+**From memory frameworks.** Mem0, Zep, LangMem, and Letta are runtime infrastructure — they handle storage, retrieval, and indexing while your agent runs. CHARACTER.md defines what character knowledge looks like, not how to store it. They're complementary: use CHARACTER.md to structure the knowledge, and a memory framework (or a file on Google Drive) to persist it.
 
 ## Where to go from here
 
