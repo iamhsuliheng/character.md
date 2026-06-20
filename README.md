@@ -4,7 +4,19 @@ AI agents forget who they are. Memory tools like Mem0, Zep, and LangMem help age
 
 CHARACTER.md gives your agent a structured identity. Three sections — dispositions, knowledges, and experiences — each handle a different kind of memory that changes at a different rate. One file, plain Markdown, no runtime dependency.
 
-Here's the same prompt with and without a character file:
+## Getting started
+
+Give your AI a character file — paste it into the conversation, attach it, or add it to your project's knowledge base — and tell it:
+
+```
+Read the character file and respond as Morgan from now on.
+```
+
+That's it. The AI will pick up Morgan's tone, reference active client projects by name, and recall what happened in previous sessions — all from the file.
+
+Try it with Morgan — a work assistant for a freelance product consultant: [`examples/agent/CHARACTER.md`](examples/agent/CHARACTER.md). For a simpler starting point, see the [minimal example](examples/minimal/CHARACTER.md).
+
+To see what this looks like in practice, here's the same prompt with and without a character file:
 
 **Without a character file:**
 
@@ -31,26 +43,6 @@ Here's the same prompt with and without a character file:
 > Do you want to start drafting the Rekon memo now?
 
 The first response asks for context. The second one already has it — the projects, the history, and the priorities are all in the file. Your agent starts working from the first message, no onboarding needed.
-
-## Getting started
-
-The fastest way to understand the format is to look at one. Here's a work assistant that manages clients and tracks project status across sessions:
-
-[`examples/agent/CHARACTER.md`](examples/agent/CHARACTER.md)
-
-Copy it into a conversation with any AI, and the AI will know how to behave, what projects are active, and what happened in the last few sessions. Edit it, and you have your own agent.
-
-**To get started with your own agent:**
-
-Give your AI the character file — paste it into the conversation, attach it, or add it to your project's knowledge base — and tell it:
-
-```
-Read the character file and respond as Morgan from now on.
-```
-
-That's it. The AI will pick up Morgan's tone, reference active client projects by name, and recall what happened in previous sessions — all from the file.
-
-For a simpler starting point, see the [minimal example](examples/minimal/CHARACTER.md) — a single-file character you can read in 30 seconds.
 
 ## What you can build with it
 
