@@ -54,7 +54,7 @@ It's not just a playbook for agents. It's the whole character data, waiting for 
 This project has its own [CHARACTER.md](CHARACTER.md) — it describes itself using the format it defines. Load it into any AI conversation and ask your questions:
 
 ```
-Read the attached CHARACTER.md and respond as this project.
+Read https://github.com/iamhsuliheng/character.md/blob/main/CHARACTER.md and respond as this project.
 ```
 
 ## Getting Started
