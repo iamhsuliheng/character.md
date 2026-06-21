@@ -4,7 +4,7 @@ CHARACTER.md is the whole data required for an agent to become a character who k
 
 Getting an agent to know you is cumbersome. You need to setup instructions, find memory solutions, install skills, and maintain all of them continuously, or they will soon start to contradict themselves. Worst of all? They are all different configs and services, so you need to travel back and forth just for fixing a wrong fact.
 
-It shouldn't be this hard. Almost all information an agent needs is feed into it at the beginning of a conversation. In other words, 
+It shouldn't be this hard. Almost all information an agent needs is feed into it at the beginning of a conversation. In other words, it's just some texts for AI to read.
 
 CHARACTER.md organizes by meaning instead — specifically, by sentence type. Everything you'd put into an AI setup is one of three things:
 
@@ -92,7 +92,7 @@ This specification is released under [CC BY 4.0](LICENSE).
 CHARACTER.md is created and maintained by [Narrativesaw](https://narrativesaw.com).
 
 ---
-Annotations: 0,5632 SHA-256 d9d95213b792f6553fca  
-&Claude <claude.ai>: 537,2 672,4960  
-@Li-Heng Hsu <lihenghsu.com>: 0,537 539,133  
+Annotations: 0,5668 SHA-256 05d88a9c16d641fceb0c  
+&Claude <claude.ai>: 537,2 708,4960  
+@Li-Heng Hsu <lihenghsu.com>: 0,537 539,169  
 ...
