@@ -8,13 +8,9 @@ It shouldn't be this hard. Almost all information an agent needs is feed into it
 
 However, CHARACTER.md is not organized by functionalities like skills or preferences or memories. Instead, CHARACTER.md only sees semantic differences — it puts texts by three semantic categories of sentences:
 
-1: **Dispositions**: Rules and commands. It usually comes in the form of a condition-instruction pair — “When X, do Y.” Sometimes the condition can be dropped to make the disposition activated all the time — “Don’t do Y”. Dispositions include top-down rules like “don’t make up false facts,” behaviors like “When being scolded, try to change the subject,” and 
+1. **Dispositions**: Rules and commands. They usually come in the form of condition-instruction pairs — “When X, do Y.” Sometimes the condition can be dropped to make the disposition activated all the time — “Don’t do Y”. Dispositions include top-down rules like “don’t make up false facts,” reactions like “When being scolded, try to change the subject,” and behaviors like “When learn something valuable, save it to Knowledges.”
+2. **Knowledges**: Facts and states. They are statements: “X is Y.” They can also be 
 
-
-
-CHARACTER.md organizes by meaning instead — specifically, by sentence type. Everything you'd put into an AI setup is one of three things:
-
-**Dispositions** — rules. Written as conditional-instruction pairs: "When X, do Y." Behavior, skills, boundaries, preferences. The AI reads an instruction and follows it.
 
 **Knowledges** — facts. Written as statements: "X is Y." Domain expertise, personal context, current status. The AI reads a fact and trusts it — or updates it when the fact changes.
 
@@ -98,7 +94,7 @@ This specification is released under [CC BY 4.0](LICENSE).
 CHARACTER.md is created and maintained by [Narrativesaw](https://narrativesaw.com).
 
 ---
-Annotations: 0,6371 SHA-256 0ef1552615e32006c7a0  
-&Claude <claude.ai>: 537,2 1409 1411,4960  
-@Li-Heng Hsu <lihenghsu.com>: 0,537 539,870 1410  
+Annotations: 0,6215 SHA-256 4f34a843f48db18484f1  
+&Claude <claude.ai>: 537,2 1565,4650  
+@Li-Heng Hsu <lihenghsu.com>: 0,537 539,1026  
 ...
