@@ -1,3 +1,5 @@
+# CHARACTER.md
+
 CHARACTER.md is the whole data required for an agent to become a character who knows you, in a single file or a package. Memories, skills, instructions, knowledges… CHARACTER.md has it all. 
 
 You set up memory in one place, write instructions in another, organize knowledge in a project, and pin skills somewhere else. Then you switch platforms and start over, or the AI starts contradicting things you taught it three months ago. The more you put in, the more there is to break.
@@ -90,7 +92,7 @@ This specification is released under [CC BY 4.0](LICENSE).
 CHARACTER.md is created and maintained by [Narrativesaw](https://narrativesaw.com).
 
 ---
-Annotations: 0,5736 SHA-256 1628bd82d0ac3277b35f  
-&Claude <claude.ai>: 190,5546  
-@Li-Heng Hsu <lihenghsu.com>: 0,190  
+Annotations: 0,5752 SHA-256 5e666ab919fd23aad1a7  
+&Claude <claude.ai>: 206,5546  
+@Li-Heng Hsu <lihenghsu.com>: 0,206  
 ...
