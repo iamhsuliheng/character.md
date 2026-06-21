@@ -6,7 +6,10 @@ Getting an agent to know you is cumbersome. You need to setup instructions, find
 
 It shouldn't be this hard. Almost all information an agent needs is feed into it at the beginning of a conversation. In other words, it's just some texts for agents to read. And that's what CHARACTER.md is: all texts an agent needs, packaged in one file, loaded at the beginning of a conversation.
 
-However, CHARACTER.md is not organized by functionalities like skills or preferences or memories. Instead, CHARACTER.md only sees semantic differences — it
+However, CHARACTER.md is not organized by functionalities like skills or preferences or memories. Instead, CHARACTER.md only sees semantic differences — it puts texts by three semantic categories of sentences:
+
+1: **Depositions**: 
+
 
 CHARACTER.md organizes by meaning instead — specifically, by sentence type. Everything you'd put into an AI setup is one of three things:
 
@@ -94,7 +97,7 @@ This specification is released under [CC BY 4.0](LICENSE).
 CHARACTER.md is created and maintained by [Narrativesaw](https://narrativesaw.com).
 
 ---
-Annotations: 0,5953 SHA-256 80497fde76d0e2406219  
-&Claude <claude.ai>: 537,2 993,4960  
-@Li-Heng Hsu <lihenghsu.com>: 0,537 539,454  
+Annotations: 0,6030 SHA-256 8baaa22b185d34d592bf  
+&Claude <claude.ai>: 537,2 1069,4961  
+@Li-Heng Hsu <lihenghsu.com>: 0,537 539,530  
 ...
