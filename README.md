@@ -8,7 +8,7 @@ It shouldn't be this hard. Almost all information an agent needs is feed into it
 
 However, CHARACTER.md is not organized by functionalities like skills or preferences or memories. Instead, CHARACTER.md only sees semantic differences — it puts texts by three semantic categories of sentences:
 
-1: **Dispositions**: Rules and commands. It usually comes in the form of condition-instruction pair — “When X, do Y.” This includes 
+1: **Dispositions**: Rules and commands. It usually comes in the form of condition-instruction pair — “When X, do Y.” This includes top-down rules like “don’t make up 
 
 
 
@@ -98,7 +98,7 @@ This specification is released under [CC BY 4.0](LICENSE).
 CHARACTER.md is created and maintained by [Narrativesaw](https://narrativesaw.com).
 
 ---
-Annotations: 0,6143 SHA-256 1437fae70d645163d8fd  
-&Claude <claude.ai>: 537,2 1181 1183,4960  
-@Li-Heng Hsu <lihenghsu.com>: 0,537 539,642 1182  
+Annotations: 0,6178 SHA-256 aee7debae55ba7024741  
+&Claude <claude.ai>: 537,2 1216 1218,4960  
+@Li-Heng Hsu <lihenghsu.com>: 0,537 539,677 1217  
 ...
