@@ -7,6 +7,8 @@
 
 CHARACTER.md is a specification for defining characters through three semantic categories of sentences. A character can be performed by an AI agent, a voice actor, a game engine, or any system that needs to maintain a consistent identity across sessions. The specification defines the semantic structure of a character's behavioral rules, domain knowledge, event history, and any other information the character needs to function consistently.
 
+The basic unit of this specification is the **sentence**: the smallest semantically complete piece of natural language — one that expresses a single rule, a single fact, or a single event. A sentence in this sense is defined by semantic completeness, not by punctuation. It may be a single typographic sentence or span an entire paragraph; what matters is that it expresses one complete idea.
+
 The specification is medium-agnostic. It defines what kinds of information a character definition contains and how they relate to each other. It does not prescribe file formats, storage mechanisms, or update procedures.
 
 For the reasoning behind these design choices and the cognitive science foundation, see [RATIONALE.md](RATIONALE.md).
