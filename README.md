@@ -11,6 +11,7 @@ However, CHARACTER.md is not organized by functionalities like skills or prefere
 1: **Depositions**: 
 
 
+
 CHARACTER.md organizes by meaning instead — specifically, by sentence type. Everything you'd put into an AI setup is one of three things:
 
 **Dispositions** — rules. Written as conditional-instruction pairs: "When X, do Y." Behavior, skills, boundaries, preferences. The AI reads an instruction and follows it.
@@ -97,7 +98,7 @@ This specification is released under [CC BY 4.0](LICENSE).
 CHARACTER.md is created and maintained by [Narrativesaw](https://narrativesaw.com).
 
 ---
-Annotations: 0,6030 SHA-256 8baaa22b185d34d592bf  
-&Claude <claude.ai>: 537,2 1069,4961  
-@Li-Heng Hsu <lihenghsu.com>: 0,537 539,530  
+Annotations: 0,6031 SHA-256 3036d68b7a5f1f040e52  
+&Claude <claude.ai>: 537,2 1069 1071,4960  
+@Li-Heng Hsu <lihenghsu.com>: 0,537 539,530 1070  
 ...
